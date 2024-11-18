@@ -1,0 +1,227 @@
+/* Estilo padrão */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html {
+    font-size: 62.5%; /* Base em 10px para facilitar a conversão */
+}
+
+body {
+    background-color: #e2e2e2;
+    font-size: 1.6rem; 
+    line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-family: 'Roboto Slab', serif;
+}
+.header{
+    background: #13141f;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+.title{
+    font-size: 4rem;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+
+}
+
+.container {
+    max-width: 120rem; /* 1200px */
+    margin: 0 auto;
+    padding: 4rem; /* Aumenta o padding da container */
+    display: flex;
+    flex-direction: column; /* Alinha itens na coluna */
+    align-items: center; /* Centraliza itens */
+}
+
+
+.item {
+    background: #fff; /* Fundo branco para os itens */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    flex: 0 1 calc(45% - 1rem); /* Flexível com espaço */
+    transition: transform 0.3s; /* Adiciona transição suave */
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Efeito de levitação ao passar o mouse */
+}
+
+.item-imagem img {
+    width: 100%; /* Imagem responsiva */
+    height: auto;
+}
+
+.item-titulo-container {
+    padding: 1.5rem;
+}
+
+.item-titulo {
+    font-size: 2rem; /* 20px */
+    margin-bottom: 1rem;
+    color: #444; /* Título em tom escuro */
+}
+
+.item-conteudo {
+    padding: 1.5rem;
+    color: #000000; /* Descrição em tom médio */
+}
+
+.item-footer {
+    padding: 1rem;
+    background-color: #f9f9f9; /* Fundo leve para o rodapé */
+    text-align: center;
+}
+
+.item-acao {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #000000; /* Cor do botão */
+    color: #fff; /* Texto do botão */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.item-acao:hover {
+    background: #777; /* Cor ao passar o mouse */
+}
+
+.popup {
+    display: none; /* Oculta o pop-up por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 90%; /* Limita a largura para telas pequenas */
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup img {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin: 10px 0;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .item {
+        flex: 0 1 calc(100% - 1rem); /* Itens ocupam toda a largura */
+    }
+
+    .item-titulo {
+        font-size: 1.8rem; /* Reduz o tamanho do título */
+    }
+
+    .item-acao {
+        padding: 0.8rem 1.5rem; /* Reduz o tamanho do botão */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1.4rem; /* Reduz o tamanho da fonte em telas muito pequenas */
+    }
+
+    h1 {
+        font-size: 2.4rem; /* Reduz o tamanho do cabeçalho */
+    }
+
+    .popup-content {
+        width: 90%; /* Limita a largura do pop-up em telas pequenas */
+        margin: 10% auto; /* Aumenta a margem superior */
+    }
+}
+
+.carousel-frame {
+    padding: 6rem; /* Aumenta o espaçamento interno */
+    border-radius: 15px; /* Bordas arredondadas */
+    margin: 3rem 0; /* Aumenta a margem acima e abaixo */
+    width: 80%; /* Aumenta a largura da moldura */
+}
+
+.carousel {
+    position: relative;
+    max-width: 100%; /* Permite que o carrossel utilize a largura total da moldura */
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+}
+
+.carousel-images img {
+    max-width: 100%;
+    display: none;
+}
+
+.carousel-images img:first-child {
+    display: block; /* Exibe a primeira imagem inicialmente */
+}
+
+.access-button {
+    display: inline-block;
+    padding: 15px 30px; /* Aumenta o padding do botão */
+    margin-top: 30px; /* Aumenta a margem acima do botão */
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: background-color 0.3s;
+    font-size: 1.6rem; /* Aumenta o tamanho do texto do botão */
+}
+
+.access-button:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+.container {
+    max-width: 120rem; /* 1200px */
+    margin: 0 auto;
+    padding: 4rem; /* Aumenta o padding da container */
+    display: flex;
+    flex-direction: column; /* Alinha itens na coluna */
+    align-items: center; /* Centraliza itens */
+}

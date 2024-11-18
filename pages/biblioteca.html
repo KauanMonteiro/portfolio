@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMSP2</title>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        function openPopup() {
+            document.getElementById('donation-popup').style.display = 'block';
+        }
+        
+        function closePopup() {
+            document.getElementById('donation-popup').style.display = 'none';
+        }
+        
+        
+        window.onload = function() {
+            setTimeout(openPopup, 1);
+        };</script>
+</head>
+<body>
+    <div id="donation-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Ajude o Clube de Tecnologia!</h2>
+            <p>Se você gosta do nosso trabalho, considere fazer uma doação.</p>
+            <img src="URL_DO_QRCODE" alt="QR Code para doação"> <!-- Substitua pela URL do seu QR Code -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="logo-container">
+        </div>
+        <h1 class="project-title">Biblioteca</h1>
+        
+        <div class="carousel-frame">
+            <div class="carousel" id="carousel">
+                <div class="carousel-images">
+                    <img src="" alt="Imagem 1">
+                    <img src="" alt="Imagem 2">
+                    <img src="" alt="Imagem 3">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+
+        <a href="https://example.com" class="access-button">Acessar Projeto</a>
+    </div>
+
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-images img');
+        const carousel = document.getElementById('carousel');
+
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            slides.forEach((slide, i) => {
+                slide.style.display = (i === currentSlide) ? 'block' : 'none';
+            });
+        }
+
+        function handleDragStart(e) {
+            e.preventDefault();
+            startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            isDragging = true;
+        }
+
+        function handleDragEnd() {
+            isDragging = false;
+            if (deltaX > 50) {
+                showSlide(currentSlide - 1); // arrastou para a esquerda
+            } else if (deltaX < -50) {
+                showSlide(currentSlide + 1); // arrastou para a direita
+            }
+            deltaX = 0; // resetar deltaX
+        }
+
+        function handleDragMove(e) {
+            if (!isDragging) return;
+            const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            deltaX = startX - clientX;
+        }
+
+        let startX, isDragging = false, deltaX = 0;
+
+        carousel.addEventListener('mousedown', handleDragStart);
+        carousel.addEventListener('mouseup', handleDragEnd);
+        carousel.addEventListener('mouseleave', handleDragEnd);
+        carousel.addEventListener('mousemove', handleDragMove);
+
+        carousel.addEventListener('touchstart', handleDragStart);
+        carousel.addEventListener('touchend', handleDragEnd);
+        carousel.addEventListener('touchmove', handleDragMove);
+
+        // Inicializa o carrossel
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
