@@ -192,3 +192,52 @@ h1 {
   .main-logo-icon {
     margin-right: 2rem;
   }
+  .popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    z-index: 1000; /* Garantir que o popup apareça acima de outros conteúdos */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+    position: absolute; /* Posicionamento absoluto para controle exato */
+    top: 50%; /* Coloca no meio verticalmente */
+    left: 50%; /* Coloca no meio horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para o centro exato */
+    z-index: 1001; /* Garantir que o conteúdo da popup fique acima do fundo */
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    margin: 10px 5px; /* Aumenta o espaçamento entre os botões */
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #555;
+}

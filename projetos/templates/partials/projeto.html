@@ -19,14 +19,16 @@
         <footer class="projeto-footer">
             {% if projeto.github %}
                 <a href="{{ projeto.github }}" target="_blank" class="projeto-acao button button-dark button-full-width">
-                    <i class="fa-brands fa-github"></i>Ver no GitHub
+                    <i class="fa-brands fa-github"></i> Ver no GitHub
                 </a>
             {% endif %}
-            {% if projeto.executaveis %}
-                <a href="{% url 'download' projeto.id %}" target="_blank" class="projeto-acao button button-dark button-full-width">
+            
+            {% if projeto.exe or projeto.linux or projeto.apk %}
+                <button class="projeto-acao button button-dark button-full-width" onclick="openDownloadPopup('{{ projeto.id }}')">
                     <i class="fas fa-download"></i> Baixar
-                </a>
+                </button>
             {% endif %}
+            
             {% if projeto.link %}
                 <a href="{{ projeto.link }}" target="_blank" class="projeto-acao button button-dark button-full-width">
                     <i class="fas fa-external-link-alt"></i> Acessar
@@ -35,3 +37,44 @@
         </footer>
     </div>
 </div>
+
+<div id="downloadPopup" class="popup">
+    <div class="popup-content">
+        <span class="popup-close" onclick="closeDownloadPopup()">×</span>
+        <h3>Escolha a versão para baixar:</h3>
+        <div id="downloadOptions"></div>
+    </div>
+</div>
+
+<script>
+    function openDownloadPopup(projetoId) {
+        var popup = document.getElementById('downloadPopup');
+        var optionsDiv = document.getElementById('downloadOptions');
+        
+        optionsDiv.innerHTML = '';
+        
+        {% for projeto in projetos %}
+            if ("{{ projeto.id }}" == projetoId) {
+                {% if projeto.linux %}
+                    optionsDiv.innerHTML += '<a href="{% url "download_linux" projeto.id %}" class="button button-dark">Linux</a><br>';
+                {% endif %}
+                
+                {% if projeto.apk %}
+                    optionsDiv.innerHTML += '<a href="{% url "download_apk" projeto.id %}" class="button button-dark">Android APK</a><br>';
+                {% endif %}
+                
+                {% if projeto.exe %}
+                    optionsDiv.innerHTML += '<a href="{% url "download_exe" projeto.id %}" class="button button-dark">Windows</a><br>';
+                {% endif %}
+            }
+        {% endfor %}
+
+        // Show the popup
+        popup.style.display = 'block';
+    }
+
+    // Close the popup
+    function closeDownloadPopup() {
+        document.getElementById('downloadPopup').style.display = 'none';
+    }
+</script>
