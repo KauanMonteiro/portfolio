@@ -1,0 +1,194 @@
+/* Estilo padrão */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html {
+    font-size: 62.5%; /* Base em 10px para facilitar a conversão */
+}
+
+body {
+    background-color: #e2e2e2;
+    font-size: 1.6rem; 
+    line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-family: 'Roboto Slab', serif;
+}
+
+.container {
+    max-width: 120rem; /* 1200px */
+    margin: 0 auto;
+    padding: 4rem; /* Aumenta o padding da container */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se ajustem */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente */
+    gap: 2rem; /* Adiciona espaçamento entre os itens */
+}
+
+.projeto {
+    background: #fff; /* Fundo branco para os itens */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    flex: 0 1 100%; /* Faz os projetos ocuparem 100% da largura */
+    transition: transform 0.3s; /* Adiciona transição suave */
+    display: flex;
+    flex-direction: column; /* Alinha itens na coluna */
+    margin: 1rem; /* Aumenta a margem entre os itens */
+}
+
+.projeto:hover {
+    transform: translateY(-5px); /* Efeito de levitação ao passar o mouse */
+}
+
+.projeto-imagem img,
+.projeto-imagem video {
+    width: 100%; /* Imagem e vídeo responsivos */
+    height: auto;
+}
+
+.projeto-titulo-container {
+    padding: 1.5rem;
+}
+
+.projeto-titulo {
+    font-size: 2rem; /* 20px */
+    margin-bottom: 1rem;
+    color: #444; /* Título em tom escuro */
+}
+
+.projeto-conteudo {
+    padding: 1.5rem;
+    color: #000000; /* Descrição em tom médio */
+}
+
+.projeto-footer {
+    padding: 1rem;
+    background-color: #f9f9f9; /* Fundo leve para o rodapé */
+    text-align: center;
+}
+
+.projeto-acao {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #000000; /* Cor do botão */
+    color: #fff; /* Texto do botão */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.projeto-acao:hover {
+    background: #777; /* Cor ao passar o mouse */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .projeto {
+        flex: 0 1 100%; /* Itens ocupam toda a largura em telas menores */
+    }
+
+    .projeto-titulo {
+        font-size: 1.8rem; /* Reduz o tamanho do título */
+    }
+
+    .projeto-acao {
+        padding: 0.8rem 1.5rem; /* Reduz o tamanho do botão */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1.4rem; /* Reduz o tamanho da fonte em telas muito pequenas */
+    }
+
+    h1 {
+        font-size: 2.4rem; /* Reduz o tamanho do cabeçalho */
+    }
+}
+
+/* Estilos do modal (se necessário) */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 40px; /* Aumente o padding para dar mais espaço interno */
+    border: 1px solid #888;
+    width: 90%; /* Aumente a largura para tornar o modal maior */
+    max-width: 800px; /* Aumente o tamanho máximo do modal */
+    text-align: center; /* Centraliza o texto dentro do modal */
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 36px; /* Aumente o tamanho da fonte para o botão de fechar */
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo dos botões (os-button) */
+.os-button {
+    display: inline-block;
+    padding: 15px 30px; /* Aumente o padding do botão para deixá-lo maior */
+    margin: 20px 10px; /* Maior espaçamento entre os botões */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; /* Aumente o tamanho da fonte do botão */
+    text-align: center; /* Garante que o texto do botão esteja centralizado */
+}
+
+.os-button:hover {
+    background-color: #45a049;
+}
+
+.main-header-container {
+    background: #050505;
+    display: flex;
+    align-items: center;
+  }
+  
+  .main-logo {
+    font-size: 4rem;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .main-logo-icon {
+    margin-right: 2rem;
+  }

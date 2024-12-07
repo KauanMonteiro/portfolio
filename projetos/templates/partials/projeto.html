@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="projeto projeto-list-item">
+        <div class="projeto-imagem">
+            {% if projeto.capa_img %}
+                <img src="{{ projeto.capa_img.url }}" alt="Capa do Projeto">
+            {% elif projeto.capa_video %}
+                <video src="{{ projeto.capa_video.url }}" autoplay loop></video>
+            {% endif %}
+        </div>
+
+        <div class="projeto-titulo-container">
+            <h2 class="projeto-titulo">{{ projeto.titulo }}</h2>
+        </div>
+
+        <div class="projeto-conteudo">
+            <p>{{ projeto.descricao }}</p>
+        </div>
+
+        <footer class="projeto-footer">
+            {% if projeto.github %}
+                <a href="{{ projeto.github }}" target="_blank" class="projeto-acao button button-dark button-full-width">
+                    <i class="fa-brands fa-github"></i>Ver no GitHub
+                </a>
+            {% endif %}
+            {% if projeto.executaveis %}
+                <a href="{% url 'download' projeto.id %}" target="_blank" class="projeto-acao button button-dark button-full-width">
+                    <i class="fas fa-download"></i> Baixar
+                </a>
+            {% endif %}
+            {% if projeto.link %}
+                <a href="{{ projeto.link }}" target="_blank" class="projeto-acao button button-dark button-full-width">
+                    <i class="fas fa-external-link-alt"></i> Acessar
+                </a>
+            {% endif %}
+        </footer>
+    </div>
+</div>
