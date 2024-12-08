@@ -1,0 +1,9 @@
+<header class="main-category-container">
+    <div class="main-category container">
+        <div class="category-group">
+            {% for category in categories %}
+                <a href="{% url 'projetos_categoria' category.id %}" class="category-link">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</header>

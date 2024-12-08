@@ -6,4 +6,5 @@ urlpatterns = [
     path('download/exe/<int:projeto_id>/', views.download_exe, name='download_exe'),
     path('download/linux/<int:projeto_id>/', views.download_linux, name='download_linux'),
     path('download/apk/<int:projeto_id>/', views.download_apk, name='download_apk'),
+    path('projeto/<int:id>/', views.projetos_categoria, name='projetos_categoria'),
 ]

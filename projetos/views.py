@@ -1,11 +1,12 @@
 from django.http import FileResponse, Http404
 from django.shortcuts import get_object_or_404, render
-from .models import Projeto
+from .models import Projeto, Category
+
 
 def home(request):
     projetos = Projeto.objects.all()
-    
-    return render(request, 'pages/home.html', context={'projetos': projetos})
+    categories = Category.objects.all()
+    return render(request, 'pages/home.html', context={'projetos': projetos,'categories': categories})
 
 # Download for Windows Executable (exe)
 def download_exe(request, projeto_id):
@@ -48,3 +49,8 @@ def download_apk(request, projeto_id):
     response = FileResponse(open(file_path, 'rb'), as_attachment=True, filename=projeto.apk.name.split('/')[-1])
     
     return response
+
+def projetos_categoria(request, id):
+    category = get_object_or_404(Category, id=id)
+    projetos = category.projeto_set.all() 
+    return render(request, 'pages/projeto_por_categoria.html', context={'category': category, 'projetos': projetos})
